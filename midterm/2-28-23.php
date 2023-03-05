@@ -11,20 +11,20 @@
 
         /* PHP Version */
         <?php
-            echo '.injectedClass {color: dodgerblue;}'
+            echo '.injectedClass {color: dodgerblue;}';
         ?>
     </style>
 </head>
 <body>
-    <h1 class="<?php echo 'injectedClass'?>">Header 1</h1>
+    <h1 class="<?php echo 'injectedClass'; ?>">Header 1</h1>
 
     <!-- PHP code initiation -->
     <?php
         // Writing one paragraph line into the html
-        echo '<p>First Program in PHP</p>' 
+        echo '<p>First Program in PHP</p>'; 
     ?>
 
-    <?php echo '<p>one line<p>' ?>
+    <?php echo '<p>one line<p>'; ?>
     <?= '<p>short version<p>' ?>
 
     <?php
@@ -37,8 +37,9 @@
         echo $str;
 
         // HERE DOC
-        $here = <<<JOSSA
-        JOSSA;
+        $here = <<<name
+
+        name;
     ?>
 </body>
 </html>
