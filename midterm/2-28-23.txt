@@ -1,0 +1,24 @@
+Web Application Development 2
+• Grading System
+	40% Exam
+	40% Assignments/MP
+	10% Attendance
+	10% Project
+
+Introduction to PHP
+• URL (Uniform Resource Locator) - unique identifier used to locate a resource on the Internet.
+• TLD - Top-Level Domain
+	Examples:
+	.com
+	.net
+	.org
+	.ph
+• Computer connects to ISP to access the Internet.
+• 13 Root Servers around the world.
+• client requests 172.66.43.252/index.html to server, then the server replies with the content of index.html
+• whatismyipaddress.com
+• Data Center - where containers of server computers are located.
+• Apache HTTP Server Project - an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards.
+• PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.
+• Fact: PHP was originally an abbreviation of Personal Home Page.
+• localhost will access 127.0.0.1
