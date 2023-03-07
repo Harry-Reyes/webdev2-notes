@@ -1,1 +1,4 @@
 PHP - HTML-Embedded scripting language
+Loops - are pieces of codes that are run multiple times.
+Trivia:
+Palindrome - a word, phrase, or sequence that reads the same backward as forward.
