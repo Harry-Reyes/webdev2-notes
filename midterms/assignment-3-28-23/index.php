@@ -3,27 +3,23 @@
     $password = '';
 
     $error = '';
-    if(isset($_GET['submit'])) {
-        $username = htmlspecialchars($_GET['username']);
-        $password = $_GET['password'];
-        $username = trim($username);
-        $password = trim($password);
-        $valid = false;
+    if(isset($_POST['submit'])) {
+        // $username = htmlspecialchars($_POST['username']);
+        // $password = $_POST['password'];
+        $username = trim(htmlspecialchars($_POST['username']));
+        $password = trim($_POST['password']);
         $f = fopen('credentials.csv', 'r') or die('Cannot read file or file "credentials.csv" is missing.');
         while($line = fgets($f)) {
             $line_data = explode(',',$line);
+            // echo '<pre>';
+            // var_dump($line_data);
+            // echo '</pre>';
             if ($line_data[1] == $username && $line_data[2] == $password) {
-                $valid = true;
-                break;
+                header('location: home.php');
             }
         }
         fclose($f);
-        if (!$valid) {
-            $error = 'error';
-        }
-        if ($error !== 'error') {
-            header('Location: home.php');
-        }
+        $error = 'error';
     }
 ?>
 <!DOCTYPE html>
@@ -41,6 +37,18 @@
             --theme-white-color: #ddd;
         }
         * {
+            font-family:
+                Roboto,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                Oxygen,
+                Ubuntu,
+                Cantarell,
+                'Open Sans',
+                'Helvetica Neue',
+                sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -74,7 +82,7 @@
             border-radius: 10px;
             outline: none;
             border: 1px solid gray;
-            width: 100px;
+            width: 70px;
             background-color: var(--theme-color);
             color: white;
             text-transform: uppercase;
@@ -104,6 +112,9 @@
             background-color: var(--error-bg-color);
             border-color: var(--error-color);
         }
+        pre {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -112,10 +123,10 @@
             <h2>Assignment</h2>
         </div>
         <h2>Login</h2>
-        <form action="<?=$_SERVER['PHP_SELF']?>" method="GET">
-            <input type="text" name="username" placeholder="Username" class="<?=$error?>"><br>
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+            <input type="text" name="username" placeholder="Username" class="<?=$error?>" autofocus><br>
             <input type="password" name="password" placeholder="Password" class="<?=$error?>"><br>
-            <input type="submit" name="submit" value="submit" class="btn">
+            <input type="submit" name="submit" value="login" class="btn">
         </form>
     </div>
 </body>
