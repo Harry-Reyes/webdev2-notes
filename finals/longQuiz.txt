@@ -1,0 +1,86 @@
+1-5 Please fill up the blanks
+$dbhost = '127.0.0.1';
+$dbuser = 'root';
+$dbpwd  = '';
+$dbname = 'course';
+$conn  = mysqli_connect($dbhost, $dbuser, $dbpwd, $dbname);
+6-10 Please fill up the blanks
+// 1. Prepare SQL statement
+$sql = 'SELECT * FROM users';    // Select all from table users
+
+// a. first you need to prepare
+$stmt = mysqli_prepare($conn , $sql)
+
+// b. Execute
+mysqli_stmt_execute($stmt);
+
+// c. Get the result
+return mysqli_stmt_get_result($stmt);
+
+11 – 15 Create a DB table named User with auto increment ID (int), username (string), password (string), and create date (date)
+
+CREATE TABLE User(
+     id INT PRIMARY KEY AUTO_INCREMENT,
+     username VARCHAR(100) NOT NULL,
+     password VARCHAR(255) NOT NULL,
+     date DATE NOT NULL
+) 
+
+II. PHP Object Oriented Programming
+
+1. Create a Class with name of User with username and password with a Constructor. The initial value of Username and Password is passed via the constructor
+class User {
+     private $username;
+     private $password;
+     public function __construct ($u, $p){
+          $this->username = $u;
+          $this->password = $p;
+     }
+}
+2. Create a Class Student that inherits from User 
+class Student extends User {}
+3. Create a Class Applicant that inherits from User, and adds a new property status – the initial value of the status is also passed via the constructor
+class Applicant extends User {
+     private $status;
+     public function __construct ($s) {
+          $this->status = $s;
+     }
+}
+4. Create a class Rectangle with properties width and height. the initial value of the status is also passed via the constructor. Also – please use property promotion.
+class Rectangle {
+     public function __construct (
+          private width;
+          private height;
+     ) {}
+}
+5. Create an abstract class and two child classes. Show how polymorphism works using the three of them below.
+abstract class Student { // abstract class cannot be instantiated
+     abstract function sleep();
+     abstract function eat();
+}
+class RichPupil extends Student { // replaces functions based on the abstract class
+     function sleep() {
+          echo 'slept for good hours';
+     }
+     function eat() {
+          echo '3 meals a day, might eat for snacks :D';
+     }
+}
+
+class CollegeStudent extends Student { // replaces functions based on the abstract class
+     function sleep() {
+          echo "what's sleep?";
+     }
+     function eat() {
+          echo '2 meals a day if i'm lucky, three's a luxury';
+     }
+}
+
+$Charice = new RichPupil();
+$Joe = new CollegeStudent();
+
+$Charise->sleep();
+$Joe->sleep();
+
+$Charise->eat();
+$Joe->eat();

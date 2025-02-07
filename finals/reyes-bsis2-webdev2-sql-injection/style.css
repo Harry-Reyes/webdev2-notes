@@ -1,0 +1,69 @@
+:root {
+    --theme-color: dodgerblue;
+    --error-color: #ff6c6c;
+    --theme-white-color: #ddd;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@keyframes pan {
+    100% {
+        background-position: 15% 50%;
+    }
+}
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+
+    background-image: url(./img/layered-waves-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    animation: pan 4s infinite alternate ease-in-out;
+}
+form {
+    margin-top: 15px;
+}
+input[type]:not([type="submit"]) {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gray;
+    width: 100px;
+    background-color: var(--theme-color);
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+.main-container {
+    width: 375px;
+    background: var(--theme-white-color);
+    padding: 60px 20px 20px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+
+    background: var(--theme-color);
+    color: white;
+
+    border-radius: 10px 10px 0 0;
+}
+.error {
+    color: var(--error-color);
+    font-weight: bold;
+}
